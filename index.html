@@ -11,13 +11,13 @@
         integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <!-- jQuery Link -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <link rel='stylesheet' href=./assets/style.css>
-    <link rel='reset' href=assets\reset.css>
+    <link rel='stylesheet' href='./assets/style.css'>
+    <link rel='stylesheet' href='./assets/reset.css'>
 </head>
 
 <body>
     <!-- Header -->
-    <header class='bg-dark text-white text-center py-2'>
+    <header id="header-id" class='bg-dark text-white text-center py-2'>
         <!-- CHANGE BG COLOR -->
         <h1>Weather Dashboard</h1>
     </header>
@@ -26,17 +26,17 @@
     <div class="container-fluid">
         <div class='row'>
             <!-- City Search -->
-            <form>
-                <div class="mb-3 col-3">
+            <form class="mb-3 col-3" id="form-test">
+                <div>
                     <label for="citySearch" class="form-label">
                         <h2>Search for a City:</h2>
                     </label>
                     <input type="text" class="form-control" id="input">
                 </div>
-                <button type="search-btn" id="search-btn" class="btn btn-primary col-3">Search</button>
+                <button type="submit" id="search-btn" class="btn btn-primary">Search</button>
             </form>
 
-            <div class='col-md-9 col-lg-9'>
+            <div class='md-9 col-lg-9'>
                 <p id='city'>CITY NAME</p>
                 <p id='temperature'>CURRENT TEMPERATURE</p>
                 <p id='wind-speed'>WIND SPEED</p>

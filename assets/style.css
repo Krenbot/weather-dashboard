@@ -1,3 +1,9 @@
-/* header{
-    background: linear-gradient()
-} */
+#header-id{
+    background-color: blue !important;
+}
+
+#search-btn{
+    width: 100%;
+} 
+
+/* Google CSS SPECIFICITY */
