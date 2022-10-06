@@ -11,6 +11,7 @@ A light weather application that pulls weather data from 5 day weather forecast 
 * HTML
 * CSS
 * JavaScript
+* moment.js
 
 ## Challenges
 * 
