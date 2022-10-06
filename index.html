@@ -9,27 +9,51 @@
     <!-- Bootstrap Link -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <!-- jQuery Link -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel='stylesheet' href=./assets/style.css>
+    <link rel='reset' href=assets\reset.css>
 </head>
 
 <body>
+    <!-- Header -->
     <header class='bg-dark text-white text-center py-2'>
+        <!-- CHANGE BG COLOR -->
         <h1>Weather Dashboard</h1>
     </header>
-    <!-- <h1>Enter Location:</h1> -->
 
-    <form>
-        <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Toronto, etc..." id='city-search'>
-            <div class="input-group-btn">
-                <button class="btn btn-info" type="button">
-                    Search
-                </button>
+    <!-- City Input & Search Button -->
+    <div class="container-fluid">
+        <div class='row'>
+            <!-- City Search -->
+            <form>
+                <div class="mb-3 col-3">
+                    <label for="citySearch" class="form-label">
+                        <h2>Search for a City:</h2>
+                    </label>
+                    <input type="text" class="form-control" id="input">
+                </div>
+                <button type="search-btn" id="search-btn" class="btn btn-primary col-3">Search</button>
+            </form>
+
+            <div class='col-md-9 col-lg-9'>
+                <p id='city'>CITY NAME</p>
+                <p id='temperature'>CURRENT TEMPERATURE</p>
+                <p id='wind-speed'>WIND SPEED</p>
+                <p id='humid'>CURRENT HUMIDITY</p>
+            </div>
+
+            <!-- Show 5 Day Results -->
+            <div id='cards'></div>
+
+            <!-- Search History -->
+            <div id='search-history'>
+                <p>Search History:</p>
             </div>
         </div>
-    </form>
+    </div>
 
 
-    </wrapper>
     <!-- RESOURCES: 
     https://coding-boot-camp.github.io/full-stack/apis/how-to-use-api-keys
     https://courses.bootcampspot.com/courses/2116/assignments/37604?module_item_id=732611 -->
@@ -38,6 +62,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
         crossorigin="anonymous"></script>
+    <!-- Moment.JS Link -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src='./assets/script.js'></script>
 </body>
 
 </html>
