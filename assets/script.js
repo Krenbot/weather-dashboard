@@ -25,14 +25,22 @@ function currentWeather(event) {
             const lat = data.coord.lat;
             const lon = data.coord.lon;
             const place = data.name
-            // const { description, icon } = data.weather[0]
+            const icon = data.weather[0].icon
             const temp = data.main.temp
             const wind = data.wind.speed
             const humidity = data.main.humidity
-            currentCityEl.textContent = place
-            currentTempEl.textContent = 'Current Temperature: ' + temp + ' °F'
-            currentWindSpeedEl.textContent = 'Current Windspeed: ' + wind + 'MPH'
-            currentHumidityEl.textContent = 'Current Humidity: ' + humidity + "%"
+            var today = moment().format('l');
+            
+            //REVIEW ICON CODE
+            // let iconEl = document.createElement('img')
+            // let icon
+            // + "http://openweathermap.org/img/wn/" + icon + "@2x.png";
+            
+            //Appends variables into HTML
+            currentCityEl.textContent = place + ' ' + today 
+            currentTempEl.textContent = 'Temp: ' + temp + ' °F';
+            currentWindSpeedEl.textContent = 'Wind: ' + wind + 'MPH';
+            currentHumidityEl.textContent = 'Humidity: ' + humidity + "%";
         });
 }
 //Displaying 5 Days of Projected Weather Data
