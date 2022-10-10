@@ -3,6 +3,7 @@ let searchInputEl = document.getElementById("input");
 let formTag = document.getElementById('form-test');
 let searchHistory = document.getElementById('search-history')
 let cityName = document.getElementById('city')
+let fiveDayEl = document.getElementById('fiveDayCards')
 
 //City Display Elements
 let currentTempEl = document.getElementById('temperature')
@@ -13,35 +14,29 @@ let currentHumidityEl = document.getElementById('humid')
 // Current Conditions of City
 function currentWeather(event) {
     event.preventDefault();
-    // console.log(searchInputEl.value);
     var cityURL = "https://api.openweathermap.org/data/2.5/weather?q=" + searchInputEl.value + "&appid=" + APIkey + "&units=imperial"
-    //console.log(cityURL)
 
     fetch(cityURL)
         .then((response) => response.json())
         .then((data) => {
-            // console.log(data)
-            //Get Informational Data
-            const lat = data.coord.lat;
-            const lon = data.coord.lon;
-            const place = data.name
 
-            const icon = document.createElement('img');
-            img.src = "http://openweathermap.org/img/wn/" + data.weather[0].icon + ".png"
-            // const icon = data.weather[0].icon
-            
-            const temp = data.main.temp
-            const wind = data.wind.speed
-            const humidity = data.main.humidity
+            //Get Informational Data
+            // const lat = data.coord.lat;
+            // const lon = data.coord.lon;
+            const place = data.name;
+            const temp = data.main.temp;
+            const wind = data.wind.speed;
+            const humidity = data.main.humidity;
             var today = moment().format('l');
 
             //REVIEW ICON CODE
-            // let iconEl = document.createElement('img')
-            // let icon
-            // + "http://openweathermap.org/img/wn/" + icon + ".png";
+            // let iconEl = document.createElement('img');
+            // let iconData = data.weather[0].icon
+            // iconEl.setAttribute('src', 'http://openweathermap.org/img/wn/' + iconData + ".png");
+            // currentCityEl.append(iconEl);
 
             //Appends variables into HTML
-            currentCityEl.textContent = place + ' ' + today + icon
+            currentCityEl.textContent = place + ' ' + today;
             currentTempEl.textContent = 'Temp: ' + temp + ' °F';
             currentWindSpeedEl.textContent = 'Wind: ' + wind + 'MPH';
             currentHumidityEl.textContent = 'Humidity: ' + humidity + "%";
@@ -54,12 +49,18 @@ function fiveDay(event) {
     console.log(searchInputEl.value);
 
     var fiveDayURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + searchInputEl.value + "&appid=" + APIkey + "&units=imperial"
-    console.log(fiveDayURL)
+
+    console.log(fiveDayURL);
+
+    fiveDayEl.textContent = '5 Day Forecast: ';
 
     fetch(fiveDayURL)
         .then((response) => response.json())
         .then((data) => {
             console.log(data)
+            for (let i = 1; i <= 5; i++){
+                
+            }
 
 
 
