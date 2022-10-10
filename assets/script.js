@@ -13,19 +13,31 @@ let currentHumidityEl = document.getElementById('humid')
 function citySearch(event) {
     event.preventDefault();
     // console.log(searchInputEl.value);
-    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + searchInputEl.value + "&appid=" + APIkey;
+    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + searchInputEl.value + "&appid=" + APIkey + "&units=imperial"
     //console.log(queryURL)
 
     fetch(queryURL)
         .then((response) => response.json())
         .then((data) => {
             console.log(data)
-            //get lat and long coords from data
-            var lan = data.coord.lat;
+            //Get lat/longitude data
+            var lat = data.coord.lat;
             var lon = data.coord.lon;
-            console.log(lan)
+            console.log(lat)
             console.log(lon)
+
+            const {temp} = data.main
+            const place = data.name
+            const {description, icon} = data.weather[0]
+            console.log(temp)
+            console.log(place)
+            console.log(description)
+            console.log(icon)
         });
+}
+
+function currentWeather() {
+
 }
 
 
