@@ -58,12 +58,7 @@ function fiveDay(event) {
         .then((response) => response.json())
         .then((data) => {
             console.log(data)
-            for (let i = 1; i <= 5; i++){
-                
-            }
-
-
-
+            for (let i = 1; i <= 5; i++) { }
         });
 }
 

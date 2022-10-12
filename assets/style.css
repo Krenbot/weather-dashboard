@@ -1,11 +1,13 @@
 :root {
     --light: #465AB8;
     --dark: #281764;
-  }
-#header-id{
+}
+
+#header-id {
     background-image: linear-gradient(to right, var(--light), var(--dark))
 }
-#search-btn{
+
+#search-btn {
     background-color: var(--light);
     width: 100%;
 }
