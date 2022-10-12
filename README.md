@@ -1,7 +1,7 @@
 # Weather Dashboard
 
 ## Deployed Link
-
+https://krenbot.github.io/weather-dashboard/
 ---------------
 
 ## Description
@@ -14,10 +14,12 @@ A light weather application that pulls weather data from 5 day weather forecast 
 * moment.js
 
 ## Challenges
-* 
+* Working with multiple appendages to box data
+* Understanding API Calls
 
 ## Future Implementations
-* 
+* Backgrounds showing city landmarks (if available)
+* Optional 10 day forecast
 
 ## User Story
 
