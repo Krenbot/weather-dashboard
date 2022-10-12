@@ -2,7 +2,6 @@
 
 ## Deployed Link
 https://krenbot.github.io/weather-dashboard/
----------------
 
 ## Description
 A light weather application that pulls weather data from 5 day weather forecast API and displays saved cities to the user.
