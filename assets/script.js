@@ -1,15 +1,15 @@
 const APIkey = "f792ea86435d6d03093ac74cf0bb3026"
-let searchInputEl = document.getElementById("input");
-let formTag = document.getElementById('form-test');
-let searchHistory = document.getElementById('search-history')
-let cityName = document.getElementById('city')
-let fiveDayEl = document.getElementById('fiveDayCards')
+let formTagEl = document.getElementById('form-test');
+let searchHistoryEl = document.getElementById('search-history')
+let cityNameEl = document.getElementById('city')
 
 //City Display Elements
 let currentTempEl = document.getElementById('temperature')
 let currentCityEl = document.getElementById('city')
 let currentWindSpeedEl = document.getElementById('wind-speed')
 let currentHumidityEl = document.getElementById('humid')
+let searchInputEl = document.getElementById("input");
+let fiveDayEl = document.getElementById('fiveDayCards')
 
 // Current Conditions of City
 function currentWeather(event) {
@@ -58,9 +58,11 @@ function fiveDay(event) {
         .then((response) => response.json())
         .then((data) => {
             console.log(data)
-            for (let i = 1; i <= 5; i++) { }
+            for (let i = 1; i <= 5; i++) {
+                
+             }
         });
 }
 
-formTag.addEventListener('submit', currentWeather);
-formTag.addEventListener('submit', fiveDay);
+formTagEl.addEventListener('submit', currentWeather);
+formTagEl.addEventListener('submit', fiveDay);
