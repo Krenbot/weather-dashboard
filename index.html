@@ -15,39 +15,32 @@
     <!-- <link rel='stylesheet' href='./assets/reset.css'> -->
 </head>
 
-<body>
-    <!-- Header -->
-    <header id="header-id" class='bg-dark text-white text-center py-2'>
-        <!-- CHANGE BG COLOR -->
+    <header id="header-id" class='bg-dark text-white text-center py-1 px-2 p-lg-4'>
         <h1>Weather Dashboard</h1>
     </header>
 
-    <!-- City Input & Search Button -->
-    <main class='container-fluid-row'>
+    <!-- City Search -->
+    <body>
 
-        <!-- City Search -->
-        <form class="mb-3 col-3" id="form-test">
-            <div>
-                <label for="citySearch" class="form-label">
-                    <h2>Search for a City:</h2>
-                </label>
-                <input type="text" class="form-control" id="input" placeholder="Tokyo, Los Angeles, ...">
-            </div>
+        <form  id ='searchInput' class="mb-3 col-3" id="form-test">
+            <label for="citySearch" class="form-label">
+                <h2>Search for a City:</h2>
+            </label>
+            <input type="text" class="form-control" id="input" placeholder="Tokyo, Los Angeles, ...">
             <button type="submit" id="search-btn" class="btn btn-primary">Search</button>
         </form>
 
-        
-        <div id="singleCity" class='md-9 col-lg-9'>
+        <section id="singleCity" class='col-lg-9'>
             <h1>
                 <p id='city'></p>
             </h1>
             <p id='temperature'></p>
             <p id='wind-speed'></p>
             <p id='humid'></p>
-        </div>
+        </section>
 
         <!-- Show 5 Day Results -->
-        <section class="col-12 col-md-10">
+        <section id='fiveDayForecast' class="col-12 col-md-10">
             <div class="row justify-content-evenly">
                 <h3>Five Day Forecast:</h3>
                 <div id='day-1' class='card mb-3 col-3 col-sm-2'>TEST DAY 1</div>
@@ -59,11 +52,12 @@
         </section>
 
         <!-- Search History -->
-        <div id='search-history'>
+        <section id='search-history'>
             <h3>Search History:</h3>
-        </div>
-    
-    </main>
+        </section>
+
+
+
     <!-- RESOURCES: 
     https://coding-boot-camp.github.io/full-stack/apis/how-to-use-api-keys
     https://courses.bootcampspot.com/courses/2116/assignments/37604?module_item_id=732611 -->
@@ -75,6 +69,7 @@
     <!-- Moment.JS Link -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src='./assets/script.js'></script>
+    
 </body>
 
 </html>
