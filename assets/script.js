@@ -51,6 +51,7 @@ function fiveDay(event) {
     var fiveDayURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + searchInputEl.value + "&appid=" + APIkey + "&units=imperial"
     console.log(fiveDayURL)
 
+    //Five Day URL
     fetch(fiveDayURL)
         .then((response) => response.json())
         .then((data2) => {
