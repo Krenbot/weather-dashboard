@@ -15,50 +15,50 @@
     <!-- <link rel='stylesheet' href='./assets/reset.css'> -->
 </head>
 
-<header id="header-id" class='bg-dark text-white text-center py-1 px-2 p-lg-4'>
-    <h1>Weather Dashboard</h1>
-</header>
 
 
 <body>
-    <!-- City Search -->
 
-    <form class="mb-3 col-3" id="form-test">
-        <div>
-            <label for="citySearch" class="form-label">
-                <h2>Search for a City:</h2>
-            </label>
-            <input type="text" class="form-control" id="input" placeholder="Tokyo, Los Angeles, ...">
+    <header id="header-id" class='bg-dark text-white text-center py-1 px-2 p-lg-4'>
+        <h1>Weather Dashboard</h1>
+    </header>
+
+    <div class="row">
+        <div class="col-4">
+            <form class="mb-3" id="form-test">
+                <div>
+                    <label for="citySearch" class="form-label">
+                        <h2>Search for a City:</h2>
+                    </label>
+                    <input type="text" class="form-control" id="input" placeholder="Tokyo, Los Angeles, ...">
+                </div>
+                <button type="submit" id="search-btn" class="btn btn-primary">Search</button>
+            </form>
+            <section id='search-history'>
+                <h3>Search History:</h3>
+            </section>
         </div>
-        <button type="submit" id="search-btn" class="btn btn-primary">Search</button>
-    </form>
 
+        <div class="col-8">
+            <section id="singleCity" class='col-lg-9'>
+                <h1>
+                    <p id='city'></p>
+                </h1>
+                <p id='temperature'></p>
+                <p id='wind-speed'></p>
+                <p id='humid'></p>
+            </section>
 
-    <section id="singleCity" class='col-lg-9'>
-        <h1>
-            <p id='city'></p>
-        </h1>
-        <p id='temperature'></p>
-        <p id='wind-speed'></p>
-        <p id='humid'></p>
-    </section>
-
-    <!-- Show 5 Day Results -->
-    <section id='fiveDayForecast' class="col-12 col-md-10">
-        <div class="row justify-content-evenly five-day">
-            <h3>Five Day Forecast:</h3>
-            <!-- <div id='day-1' class='card mb-3 col-3 col-sm-2'>TEST DAY 1</div>
-            <div id='day-2' class='card mb-3 col-3 col-sm-2'>TEST DAY 2</div>
-            <div id='day-3' class='card mb-3 col-3 col-sm-2'>TEST DAY 3</div>
-            <div id='day-4' class='card mb-3 col-3 col-sm-2'>TEST DAY 4</div>
-            <div id='day-5' class='card mb-3 col-3 col-sm-2'>TEST DAY 5</div> -->
+            <!-- Show 5 Day Results -->
+            <section id='fiveDayForecast' class="col-12 col-md-10">
+                <h3>Five Day Forecast:</h3>
+                <div class="d-flex justify-content-between five-day">
+                </div>
+            </section>
         </div>
-    </section>
+    </div>
 
-    <!-- Search History -->
-    <section id='search-history'>
-        <h3>Search History:</h3>
-    </section>
+
 
 
     <!-- RESOURCES: 

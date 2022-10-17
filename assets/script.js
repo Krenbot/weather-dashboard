@@ -9,7 +9,7 @@ let currentCityEl = document.getElementById('city');
 let currentWindSpeedEl = document.getElementById('wind-speed');
 let currentHumidityEl = document.getElementById('humid');
 let searchInputEl = document.getElementById("input");
-let fiveDayEl = document.getElementById('fiveDayForecast');
+let fiveDayEl = document.querySelector('.five-day');
 
 // Current Conditions of City
 function currentWeather(event) {
@@ -59,17 +59,37 @@ function fiveDay(event) {
 
             //Per API settings, gets data for next 5 days
             for (let i = 3; i <= data2.list.length; i += 9) {
-
-                const place = data2.name;
                 const temp = data2.list[i].main.temp;
                 const wind = data2.list[i].wind.speed;
                 const humidity = data2.list[i].main.humidity;
-                var today = moment().format('l');
+                
+                var today = data2.list[i].dt_txt.split(' ')
+                console.log(today)
+                var card = document.createElement('div')
+                var todayEl = document.createElement('h3')
+                var temperature = document.createElement('h2')
+                var windEl = document.createElement('h3')
+                var humidityEl = document.createElement('h3')
 
-                currentCityEl.textContent = place + ' ' + today;
-                currentTempEl.textContent = 'Temp: ' + temp + ' °F';
-                currentWindSpeedEl.textContent = 'Wind: ' + wind + 'MPH';
-                currentHumidityEl.textContent = 'Humidity: ' + humidity + "%";
+                todayEl.textContent = moment(today[0]).format('MM/DD/YYYY')
+                humidityEl.textContent = humidity
+                temperature.textContent = temp
+                windEl.textContent = wind
+
+                card.appendChild(todayEl)
+                card.appendChild(temperature)
+                card.appendChild(humidityEl)
+                card.appendChild(windEl)
+
+                fiveDayEl.appendChild(card)
+
+
+            
+
+                // currentCityEl.textContent = place + ' ' + today;
+                // currentTempEl.textContent = 'Temp: ' + temp + ' °F';
+                // currentWindSpeedEl.textContent = 'Wind: ' + wind + 'MPH';
+                // currentHumidityEl.textContent = 'Humidity: ' + humidity + "%";
 
                 for (let i = 1; i < 6; i++) {
 
@@ -90,5 +110,6 @@ function fiveDay(event) {
         });
 }
 
+
 formTagEl.addEventListener('submit', currentWeather);
-// formTagEl.addEventListener('submit', fiveDay);
+formTagEl.addEventListener('submit', fiveDay);
