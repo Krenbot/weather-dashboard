@@ -25,4 +25,14 @@
     margin-bottom: 30px;
 }
 
+#singleCity {
+    border: 5px black;
+}
+
+.five-day{
+    background-color: #323D4F;
+    color:white;
+}
+
+
 /* Google CSS SPECIFICITY */

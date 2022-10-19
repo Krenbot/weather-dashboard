@@ -38,8 +38,8 @@ function currentWeather(event) {
 
             //Appends variables into HTML
             currentCityEl.textContent = place + ' ' + today;
-            currentTempEl.textContent = 'Temp: ' + temp + ' °F';
-            currentWindSpeedEl.textContent = 'Wind: ' + wind + 'MPH';
+            currentTempEl.textContent = 'Temp: ' + temp + '°F';
+            currentWindSpeedEl.textContent = 'Wind: ' + wind + ' MPH';
             currentHumidityEl.textContent = 'Humidity: ' + humidity + "%";
         });
 }
@@ -62,19 +62,19 @@ function fiveDay(event) {
                 const temp = data2.list[i].main.temp;
                 const wind = data2.list[i].wind.speed;
                 const humidity = data2.list[i].main.humidity;
-                
+
                 var today = data2.list[i].dt_txt.split(' ')
                 console.log(today)
                 var card = document.createElement('div')
                 var todayEl = document.createElement('h3')
-                var temperature = document.createElement('h2')
-                var windEl = document.createElement('h3')
-                var humidityEl = document.createElement('h3')
+                var temperature = document.createElement('h4')
+                var windEl = document.createElement('h4')
+                var humidityEl = document.createElement('h4')
 
                 todayEl.textContent = moment(today[0]).format('MM/DD/YYYY')
-                humidityEl.textContent = humidity
-                temperature.textContent = temp
-                windEl.textContent = wind
+                temperature.textContent = temp + '°F'
+                humidityEl.textContent = humidity + "%"
+                windEl.textContent = wind + " MPH"
 
                 card.appendChild(todayEl)
                 card.appendChild(temperature)
@@ -82,30 +82,6 @@ function fiveDay(event) {
                 card.appendChild(windEl)
 
                 fiveDayEl.appendChild(card)
-
-
-            
-
-                // currentCityEl.textContent = place + ' ' + today;
-                // currentTempEl.textContent = 'Temp: ' + temp + ' °F';
-                // currentWindSpeedEl.textContent = 'Wind: ' + wind + 'MPH';
-                // currentHumidityEl.textContent = 'Humidity: ' + humidity + "%";
-
-                for (let i = 1; i < 6; i++) {
-
-                }
-                // REFERENCE HTML
-                // <!-- Show 5 Day Results -->
-                // <section id='fiveDayForecast' class="col-12 col-md-10">
-                // <div class="row justify-content-evenly five-day">
-                // <h3>Five Day Forecast:</h3>
-                //<!-- <div id='day-1' class='card mb-3 col-3 col-sm-2'>TEST DAY 1</div>
-                //<div id='day-2' class='card mb-3 col-3 col-sm-2'>TEST DAY 2</div>
-                //<div id='day-3' class='card mb-3 col-3 col-sm-2'>TEST DAY 3</div>
-                //<div id='day-4' class='card mb-3 col-3 col-sm-2'>TEST DAY 4</div>
-                //<div id='day-5' class='card mb-3 col-3 col-sm-2'>TEST DAY 5</div> -->
-                //</div>
-                // </section>
             }
         });
 }
