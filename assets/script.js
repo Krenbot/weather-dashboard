@@ -64,12 +64,14 @@ function fiveDay(event) {
                 const humidity = data2.list[i].main.humidity;
 
                 var today = data2.list[i].dt_txt.split(' ')
-                console.log(today)
                 var card = document.createElement('div')
-                var todayEl = document.createElement('h3')
-                var temperature = document.createElement('h4')
-                var windEl = document.createElement('h4')
-                var humidityEl = document.createElement('h4')
+                var todayEl = document.createElement('h2')
+                var icon = document.createElement('img')
+                var temperature = document.createElement('p')
+                var windEl = document.createElement('p')
+                var humidityEl = document.createElement('p')
+
+                icon.src = "https://openweathermap.org/img/wn/" + data2.list[i].weather[0].icon + ".png"
 
                 todayEl.textContent = moment(today[0]).format('MM/DD/YYYY')
                 temperature.textContent = temp + '°F'
@@ -77,6 +79,7 @@ function fiveDay(event) {
                 windEl.textContent = wind + " MPH"
 
                 card.appendChild(todayEl)
+                card.appendChild(icon)
                 card.appendChild(temperature)
                 card.appendChild(humidityEl)
                 card.appendChild(windEl)
