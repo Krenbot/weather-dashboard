@@ -23,14 +23,14 @@ function currentWeather(event) {
             //Get Informational Data
             const place = data.name;
             var today = moment().format('l');
+            // const icon = document.querySelector('.icon');
             const temp = data.main.temp;
             const wind = data.wind.speed;
             const humidity = data.main.humidity;
 
-
-
             //Appends variables into HTML
-            currentCityEl.textContent = place + ' ' + '(' + today + ')';
+            currentCityEl.textContent = place + ' ' + '(' + today + ')'
+            // img.src = "https://openweathermap.org/img/wn/" + forecast.list[i].weather[0].icon + "@2x.png"
             currentTempEl.textContent = 'Temp: ' + temp + '°F';
             currentWindSpeedEl.textContent = 'Wind: ' + wind + ' MPH';
             currentHumidityEl.textContent = 'Humidity: ' + humidity + "%";
@@ -74,8 +74,8 @@ function fiveDay(event) {
                 card.appendChild(todayEl)
                 card.appendChild(icon)
                 card.appendChild(temperature)
-                card.appendChild(humidityEl)
                 card.appendChild(windEl)
+                card.appendChild(humidityEl)
 
                 fiveDayEl.appendChild(card)
             }
