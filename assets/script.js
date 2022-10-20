@@ -19,25 +19,18 @@ function currentWeather(event) {
     fetch(cityURL)
         .then((response) => response.json())
         .then((data) => {
-            console.log(data)
 
             //Get Informational Data
-            // const lat = data.coord.lat;
-            // const lon = data.coord.lon;
             const place = data.name;
+            var today = moment().format('l');
             const temp = data.main.temp;
             const wind = data.wind.speed;
             const humidity = data.main.humidity;
-            var today = moment().format('l');
 
-            //REVIEW ICON CODE
-            // let iconEl = document.createElement('img');
-            // let iconData = data.weather[0].icon
-            // iconEl.setAttribute('src', 'http://openweathermap.org/img/wn/' + iconData + ".png");
-            // currentCityEl.append(iconEl);
+
 
             //Appends variables into HTML
-            currentCityEl.textContent = place + ' ' + today;
+            currentCityEl.textContent = place + ' ' + '(' + today + ')';
             currentTempEl.textContent = 'Temp: ' + temp + '°F';
             currentWindSpeedEl.textContent = 'Wind: ' + wind + ' MPH';
             currentHumidityEl.textContent = 'Humidity: ' + humidity + "%";
