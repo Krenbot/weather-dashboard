@@ -10,6 +10,7 @@ let currentWindSpeedEl = document.getElementById('wind-speed');
 let currentHumidityEl = document.getElementById('humid');
 let searchInputEl = document.getElementById("input");
 let fiveDayEl = document.querySelector('.five-day');
+let singleDayIcon = document.getElementById('single-day-icon');
 
 // Current Conditions of City
 function currentWeather(event) {
@@ -19,7 +20,9 @@ function currentWeather(event) {
     fetch(cityURL)
         .then((response) => response.json())
         .then((data) => {
+console.log(data)
 
+console.log()
             //Get Informational Data
             const place = data.name;
             var today = moment().format('l');
@@ -28,9 +31,11 @@ function currentWeather(event) {
             const wind = data.wind.speed;
             const humidity = data.main.humidity;
 
+
+
             //Appends variables into HTML
             currentCityEl.textContent = place + ' ' + '(' + today + ')'
-            // img.src = "https://openweathermap.org/img/wn/" + forecast.list[i].weather[0].icon + "@2x.png"
+            singleDayIcon.src = "https://openweathermap.org/img/wn/" + data.weather[0].icon + "@2x.png"
             currentTempEl.textContent = 'Temp: ' + temp + '°F';
             currentWindSpeedEl.textContent = 'Wind: ' + wind + ' MPH';
             currentHumidityEl.textContent = 'Humidity: ' + humidity + "%";
@@ -48,7 +53,6 @@ function fiveDay(event) {
     fetch(fiveDayURL)
         .then((response) => response.json())
         .then((data2) => {
-            console.log(data2)
 
             //Per API settings, gets data for next 5 days
             for (let i = 3; i <= data2.list.length; i += 9) {
@@ -81,7 +85,6 @@ function fiveDay(event) {
             }
         });
 }
-
 
 formTagEl.addEventListener('submit', currentWeather);
 formTagEl.addEventListener('submit', fiveDay);
