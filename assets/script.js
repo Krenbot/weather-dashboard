@@ -25,10 +25,23 @@ function storeSearch(cityName) {
 
     pastSearchBtn.addEventListener('click', function () {
         cityName = pastSearchBtn.innerText;
+        currentWeather(cityURL)
     }
 }
 
+//Put Past Searches in LocalStorage
+function appendStorage(){
+    localStorage.setItem('pastSearch', JSON.stringify(pastSearch))
+}
 
+
+//Get Past Searches from Local Storage
+function getStorage(){
+    var storage = JSON.parse(localStorage.getItem('pastSearch'));
+    if (storage){
+        storage.forEach(storeSearch)
+    }
+}
 
 // Current Conditions of City
 function currentWeather(event) {
