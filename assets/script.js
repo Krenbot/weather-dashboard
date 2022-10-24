@@ -12,7 +12,6 @@ let searchInputEl = document.getElementById("input");
 let fiveDayEl = document.querySelector('.five-day');
 let singleDayIcon = document.getElementById('single-day-icon');
 
-
 //Save Searches to Local Storage
 var pastSearch = JSON.parse(localStorage.getItem('pastSearch')) || [];
 
@@ -110,7 +109,6 @@ function fiveDay(cityName) {
         });
 }
 
-
 //Listens for submits and reruns API
 formTagEl.addEventListener('submit', function (event) {
     event.preventDefault();
@@ -118,6 +116,5 @@ formTagEl.addEventListener('submit', function (event) {
     currentWeather(cityName)
     fiveDay(cityName)
 });
-
 
 onload = getStorage();
