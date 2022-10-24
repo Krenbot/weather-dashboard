@@ -14,39 +14,39 @@ let singleDayIcon = document.getElementById('single-day-icon');
 
 
 //Save Searches to Local Storage
-var pastSearch = json.parse(localStorage.getItem('pastSearch')) || [];
+var pastSearch = JSON.parse(localStorage.getItem('pastSearch')) || [];
 
 //Store Searched City and Create a Clickable Button
 function storeSearch(cityName) {
-    var pastSearchBtn = document.createElement('button');
+    const pastSearchBtn = document.createElement('button');
     pastSearchBtn.setAttribute('class', 'button');
     pastSearchBtn.innerText = cityName;
     searchHistoryEl.appendChild(pastSearchBtn);
 
     pastSearchBtn.addEventListener('click', function () {
-        cityName = pastSearchBtn.innerText;
-        currentWeather(cityURL)
-    }
+        const cityName = pastSearchBtn.innerText;
+        currentWeather(cityName)
+        fiveDay(cityName)
+    })
 }
 
 //Put Past Searches in LocalStorage
-function appendStorage(){
+function appendStorage() {
     localStorage.setItem('pastSearch', JSON.stringify(pastSearch))
 }
 
-
 //Get Past Searches from Local Storage
-function getStorage(){
+function getStorage() {
     var storage = JSON.parse(localStorage.getItem('pastSearch'));
-    if (storage){
+    if (storage) {
         storage.forEach(storeSearch)
     }
 }
 
 // Current Conditions of City
-function currentWeather(event) {
-    event.preventDefault();
-    var cityURL = "https://api.openweathermap.org/data/2.5/weather?q=" + searchInputEl.value + "&appid=" + APIkey + "&units=imperial"
+function currentWeather(cityName) {
+    // event.preventDefault();
+    var cityURL = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=" + APIkey + "&units=imperial"
 
     fetch(cityURL)
         .then((response) => response.json())
@@ -57,6 +57,7 @@ function currentWeather(event) {
             const temp = data.main.temp;
             const wind = data.wind.speed;
             const humidity = data.main.humidity;
+            storeSearch(cityName)
 
             //Appends variables into HTML
             currentCityEl.textContent = place + ' ' + '(' + today + ')'
@@ -68,10 +69,10 @@ function currentWeather(event) {
 }
 
 //Displaying 5 Days of Projected Weather Data
-function fiveDay(event) {
-    event.preventDefault();
+function fiveDay(cityName) {
+    // event.preventDefault();
 
-    var fiveDayURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + searchInputEl.value + "&appid=" + APIkey + "&units=imperial"
+    var fiveDayURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&appid=" + APIkey + "&units=imperial"
     console.log(fiveDayURL)
 
     //Five Day URL
@@ -111,7 +112,17 @@ function fiveDay(event) {
         });
 }
 
-formTagEl.addEventListener('submit', currentWeather);
-formTagEl.addEventListener('submit', fiveDay);
+
+//Listens for submits and reruns API
+formTagEl.addEventListener('submit', function (event) {
+    event.preventDefault();
+    var cityName = searchInputEl.value
+    currentWeather(cityName)
+    fiveDay(cityName)
+});
+// formTagEl.addEventListener('submit', fiveDay);
+
 
 onload = getStorage();
+
+//TODO: get value from typed city and return into function
