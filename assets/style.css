@@ -7,7 +7,7 @@
     background-image: linear-gradient(to right, var(--light), var(--dark))
 }
 
-.singleHeader{
+.singleHeader {
     display: flex;
     align-items: center;
 }
@@ -34,9 +34,9 @@
     border: 5px black;
 }
 
-.five-day{
+.five-day {
     background-color: #323D4F;
-    color:white;
+    color: white;
 }
 
 

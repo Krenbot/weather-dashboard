@@ -12,6 +12,24 @@ let searchInputEl = document.getElementById("input");
 let fiveDayEl = document.querySelector('.five-day');
 let singleDayIcon = document.getElementById('single-day-icon');
 
+
+//Save Searches to Local Storage
+var pastSearch = json.parse(localStorage.getItem('pastSearch')) || [];
+
+//Store Searched City and Create a Clickable Button
+function storeSearch(cityName) {
+    var pastSearchBtn = document.createElement('button');
+    pastSearchBtn.setAttribute('class', 'button');
+    pastSearchBtn.innerText = cityName;
+    searchHistoryEl.appendChild(pastSearchBtn);
+
+    pastSearchBtn.addEventListener('click', function () {
+        cityName = pastSearchBtn.innerText;
+    }
+}
+
+
+
 // Current Conditions of City
 function currentWeather(event) {
     event.preventDefault();
@@ -20,18 +38,12 @@ function currentWeather(event) {
     fetch(cityURL)
         .then((response) => response.json())
         .then((data) => {
-console.log(data)
-
-console.log()
             //Get Informational Data
             const place = data.name;
             var today = moment().format('l');
-            // const icon = document.querySelector('.icon');
             const temp = data.main.temp;
             const wind = data.wind.speed;
             const humidity = data.main.humidity;
-
-
 
             //Appends variables into HTML
             currentCityEl.textContent = place + ' ' + '(' + today + ')'
@@ -88,3 +100,5 @@ function fiveDay(event) {
 
 formTagEl.addEventListener('submit', currentWeather);
 formTagEl.addEventListener('submit', fiveDay);
+
+onload = getStorage();
