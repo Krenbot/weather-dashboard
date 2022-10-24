@@ -45,7 +45,6 @@ function getStorage() {
 
 // Current Conditions of City
 function currentWeather(cityName) {
-    // event.preventDefault();
     var cityURL = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=" + APIkey + "&units=imperial"
 
     fetch(cityURL)
@@ -70,7 +69,6 @@ function currentWeather(cityName) {
 
 //Displaying 5 Days of Projected Weather Data
 function fiveDay(cityName) {
-    // event.preventDefault();
 
     var fiveDayURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&appid=" + APIkey + "&units=imperial"
     console.log(fiveDayURL)
@@ -120,9 +118,6 @@ formTagEl.addEventListener('submit', function (event) {
     currentWeather(cityName)
     fiveDay(cityName)
 });
-// formTagEl.addEventListener('submit', fiveDay);
 
 
 onload = getStorage();
-
-//TODO: get value from typed city and return into function
