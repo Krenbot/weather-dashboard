@@ -103,6 +103,7 @@ function fiveDay(cityName) {
                 card.appendChild(temperature)
                 card.appendChild(windEl)
                 card.appendChild(humidityEl)
+                fiveDayEl = ''
 
                 fiveDayEl.appendChild(card)
             }
@@ -117,4 +118,4 @@ formTagEl.addEventListener('submit', function (event) {
     fiveDay(cityName)
 });
 
-onload = getStorage();
+// window.onload = getStorage();
