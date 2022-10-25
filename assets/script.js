@@ -103,9 +103,9 @@ function fiveDay(cityName) {
                 card.appendChild(temperature)
                 card.appendChild(windEl)
                 card.appendChild(humidityEl)
-                fiveDayEl = ''
-
+                
                 fiveDayEl.appendChild(card)
+                // fiveDayEl.removeChild(card)
             }
         });
 }
@@ -113,6 +113,7 @@ function fiveDay(cityName) {
 //Listens for submits and reruns API
 formTagEl.addEventListener('submit', function (event) {
     event.preventDefault();
+    // fiveDayEl.removeChild(card)
     var cityName = searchInputEl.value
     currentWeather(cityName)
     fiveDay(cityName)
