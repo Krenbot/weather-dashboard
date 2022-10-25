@@ -1,19 +1,19 @@
 const APIkey = "f792ea86435d6d03093ac74cf0bb3026";
-let formTagEl = document.getElementById('form-test');
-let searchHistoryEl = document.getElementById('search-history');
-let cityNameEl = document.getElementById('city');
+const formTagEl = document.getElementById('form-test');
+const searchHistoryEl = document.getElementById('search-history');
+const cityNameEl = document.getElementById('city');
 
 //City Display Elements
-let currentTempEl = document.getElementById('temperature');
-let currentCityEl = document.getElementById('city');
-let currentWindSpeedEl = document.getElementById('wind-speed');
-let currentHumidityEl = document.getElementById('humid');
-let searchInputEl = document.getElementById("input");
-let fiveDayEl = document.querySelector('.five-day');
-let singleDayIcon = document.getElementById('single-day-icon');
+const currentTempEl = document.getElementById('temperature');
+const currentCityEl = document.getElementById('city');
+const currentWindSpeedEl = document.getElementById('wind-speed');
+const currentHumidityEl = document.getElementById('humid');
+const searchInputEl = document.getElementById("input");
+const fiveDayEl = document.querySelector('.five-day');
+const singleDayIcon = document.getElementById('single-day-icon');
 
 //Save Searches to Local Storage
-var pastSearch = JSON.parse(localStorage.getItem('pastSearch')) || [];
+let pastSearch = JSON.parse(localStorage.getItem('pastSearch')) || [];
 
 //Store Searched City and Create a Clickable Button
 function storeSearch(cityName) {
@@ -36,7 +36,7 @@ function appendStorage() {
 
 //Get Past Searches from Local Storage
 function getStorage() {
-    var storage = JSON.parse(localStorage.getItem('pastSearch'));
+    let storage = JSON.parse(localStorage.getItem('pastSearch'));
     if (storage) {
         storage.forEach(storeSearch)
     }
@@ -44,7 +44,7 @@ function getStorage() {
 
 // Current Conditions of City
 function currentWeather(cityName) {
-    var cityURL = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=" + APIkey + "&units=imperial"
+    let cityURL = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=" + APIkey + "&units=imperial"
 
     fetch(cityURL)
         .then((response) => response.json())
@@ -68,8 +68,8 @@ function currentWeather(cityName) {
 
 //Displaying 5 Days of Projected Weather Data
 function fiveDay(cityName) {
-
-    var fiveDayURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&appid=" + APIkey + "&units=imperial"
+    let fiveDayURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&appid=" + APIkey + "&units=imperial"
+   
     //Clears Previous 5 day Divs
     fiveDayEl.innerHTML = ''
 
@@ -80,17 +80,17 @@ function fiveDay(cityName) {
 
             //Per API settings, gets data for next 5 days
             for (let i = 3; i <= data2.list.length; i += 9) {
-                const temp = data2.list[i].main.temp;
-                const wind = data2.list[i].wind.speed;
-                const humidity = data2.list[i].main.humidity;
+                let temp = data2.list[i].main.temp;
+                let wind = data2.list[i].wind.speed;
+                let humidity = data2.list[i].main.humidity;
 
-                var today = data2.list[i].dt_txt.split(' ')
-                var card = document.createElement('div')
-                var todayEl = document.createElement('h2')
-                var icon = document.createElement('img')
-                var temperature = document.createElement('p')
-                var windEl = document.createElement('p')
-                var humidityEl = document.createElement('p')
+                let today = data2.list[i].dt_txt.split(' ')
+                let card = document.createElement('div')
+                let todayEl = document.createElement('h2')
+                let icon = document.createElement('img')
+                let temperature = document.createElement('p')
+                let windEl = document.createElement('p')
+                let humidityEl = document.createElement('p')
 
                 icon.src = "https://openweathermap.org/img/wn/" + data2.list[i].weather[0].icon + ".png"
 
@@ -113,7 +113,7 @@ function fiveDay(cityName) {
 //Listens for submits and reruns API
 formTagEl.addEventListener('submit', function (event) {
     event.preventDefault();
-    var cityName = searchInputEl.value
+    let cityName = searchInputEl.value
     currentWeather(cityName)
     fiveDay(cityName)
 });
