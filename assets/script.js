@@ -70,7 +70,8 @@ function currentWeather(cityName) {
 function fiveDay(cityName) {
 
     var fiveDayURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&appid=" + APIkey + "&units=imperial"
-    console.log(fiveDayURL)
+    //Clears Previous 5 day Divs
+    fiveDayEl.innerHTML = ''
 
     //Five Day URL
     fetch(fiveDayURL)
@@ -103,9 +104,8 @@ function fiveDay(cityName) {
                 card.appendChild(temperature)
                 card.appendChild(windEl)
                 card.appendChild(humidityEl)
-                
+
                 fiveDayEl.appendChild(card)
-                // fiveDayEl.removeChild(card)
             }
         });
 }
@@ -113,7 +113,6 @@ function fiveDay(cityName) {
 //Listens for submits and reruns API
 formTagEl.addEventListener('submit', function (event) {
     event.preventDefault();
-    // fiveDayEl.removeChild(card)
     var cityName = searchInputEl.value
     currentWeather(cityName)
     fiveDay(cityName)
