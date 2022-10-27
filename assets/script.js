@@ -93,22 +93,21 @@ function fiveDay(cityName) {
                 let windEl = document.createElement('p')
                 let humidityEl = document.createElement('p')
 
-
                 col.setAttribute("class", "col");
                 card.setAttribute("class", "fiveDayCard");
 
                 todayEl.textContent = moment(today[0]).format('ddd')
                 icon.src = "https://openweathermap.org/img/wn/" + fiveDayData.list[i].weather[0].icon + ".png"
-                temperature.textContent = temp + '°F'
-                humidityEl.textContent = humidity + "%"
-                windEl.textContent = wind + " MPH"
-
+                temperature.textContent = 'Temp: ' + temp + '°F'
+                windEl.textContent = 'Wind: ' + wind + " MPH"
+                humidityEl.textContent = "Humidity: " + humidity + "%"
 
                 card.appendChild(todayEl)
                 card.appendChild(icon)
                 card.appendChild(temperature)
-                card.appendChild(humidityEl)
                 card.appendChild(windEl)
+                card.appendChild(humidityEl)
+
                 col.appendChild(card)
                 fiveDayEl.appendChild(col)
             }

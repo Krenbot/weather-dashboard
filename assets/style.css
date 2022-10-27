@@ -37,6 +37,7 @@
 .five-day .col .fiveDayCard {
     background-color: #323D4F;
     color: white;
+    padding: 5px;
 }
 
 /* Google CSS SPECIFICITY */
