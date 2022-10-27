@@ -76,14 +76,14 @@ function fiveDay(cityName) {
     //Five Day URL
     fetch(fiveDayURL)
         .then((response) => response.json())
-        .then((data2) => {
+        .then((fiveDayData) => {
 
             //Per API settings, gets data for next 5 days
-            for (let i = 3; i <= data2.list.length; i += 9) {
-                let temp = data2.list[i].main.temp;
-                let wind = data2.list[i].wind.speed;
-                let humidity = data2.list[i].main.humidity;
-                let today = data2.list[i].dt_txt.split(' ')
+            for (let i = 3; i <= fiveDayData.list.length; i += 9) {
+                let temp = fiveDayData.list[i].main.temp;
+                let wind = fiveDayData.list[i].wind.speed;
+                let humidity = fiveDayData.list[i].main.humidity;
+                let today = fiveDayData.list[i].dt_txt.split(' ')
                 
                 let card = document.createElement('div')
                 let todayEl = document.createElement('h2')
@@ -92,9 +92,8 @@ function fiveDay(cityName) {
                 let windEl = document.createElement('p')
                 let humidityEl = document.createElement('p')
 
-                icon.src = "https://openweathermap.org/img/wn/" + data2.list[i].weather[0].icon + ".png"
-
                 todayEl.textContent = moment(today[0]).format('MM/DD/YYYY')
+                icon.src = "https://openweathermap.org/img/wn/" + fiveDayData.list[i].weather[0].icon + ".png"
                 temperature.textContent = temp + '°F'
                 humidityEl.textContent = humidity + "%"
                 windEl.textContent = wind + " MPH"
@@ -102,8 +101,8 @@ function fiveDay(cityName) {
                 card.appendChild(todayEl)
                 card.appendChild(icon)
                 card.appendChild(temperature)
-                card.appendChild(windEl)
                 card.appendChild(humidityEl)
+                card.appendChild(windEl)
 
                 fiveDayEl.appendChild(card)
             }
