@@ -92,7 +92,7 @@ function fiveDay(cityName) {
                 let windEl = document.createElement('p')
                 let humidityEl = document.createElement('p')
 
-                todayEl.textContent = moment(today[0]).format('MM/DD/YYYY')
+                todayEl.textContent = moment(today[0]).format('ddd')
                 icon.src = "https://openweathermap.org/img/wn/" + fiveDayData.list[i].weather[0].icon + ".png"
                 temperature.textContent = temp + '°F'
                 humidityEl.textContent = humidity + "%"
