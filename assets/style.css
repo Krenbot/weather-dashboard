@@ -34,7 +34,7 @@
     border: 5px black;
 }
 
-.five-day {
+.five-day .col .fiveDayCard {
     background-color: #323D4F;
     color: white;
 }
