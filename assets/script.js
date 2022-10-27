@@ -92,6 +92,12 @@ function fiveDay(cityName) {
                 let windEl = document.createElement('p')
                 let humidityEl = document.createElement('p')
 
+                card.setAttribute(
+                //APPLY MORE STYLES AS NEEDED
+                // 'style',
+                // 'background-color: salmon; color: white; width: 150px; height: 150px;'
+                )
+
                 todayEl.textContent = moment(today[0]).format('ddd')
                 icon.src = "https://openweathermap.org/img/wn/" + fiveDayData.list[i].weather[0].icon + ".png"
                 temperature.textContent = temp + '°F'
@@ -118,4 +124,4 @@ formTagEl.addEventListener('submit', function (event) {
     fiveDay(cityName)
 });
 
-// window.onload = getStorage();
+window.onload = getStorage();
