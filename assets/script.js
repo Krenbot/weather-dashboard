@@ -18,7 +18,7 @@ let pastSearch = JSON.parse(localStorage.getItem('pastSearch')) || [];
 //Store Searched City and Create a Clickable Button
 function storeSearch(cityName) {
     const pastSearchBtn = document.createElement('button');
-    pastSearchBtn.setAttribute('class', 'button');
+    pastSearchBtn.setAttribute('class', 'btn btn-secondary');
     pastSearchBtn.innerText = cityName;
     searchHistoryEl.appendChild(pastSearchBtn);
 
@@ -83,8 +83,8 @@ function fiveDay(cityName) {
                 let temp = data2.list[i].main.temp;
                 let wind = data2.list[i].wind.speed;
                 let humidity = data2.list[i].main.humidity;
-
                 let today = data2.list[i].dt_txt.split(' ')
+                
                 let card = document.createElement('div')
                 let todayEl = document.createElement('h2')
                 let icon = document.createElement('img')
