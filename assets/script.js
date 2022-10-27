@@ -98,6 +98,7 @@ function fiveDay(cityName) {
                 humidityEl.textContent = humidity + "%"
                 windEl.textContent = wind + " MPH"
 
+                card.setAttribute("class", "gap-2");
                 card.appendChild(todayEl)
                 card.appendChild(icon)
                 card.appendChild(temperature)
