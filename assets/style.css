@@ -4,12 +4,19 @@
 }
 
 #header-id {
-    background-image: linear-gradient(to right, var(--light), var(--dark))
+    margin:10px;
+    background-image: linear-gradient(to right, var(--light), var(--dark));
 }
 
 .singleHeader {
     display: flex;
     align-items: center;
+}
+
+.singleCityWrap{
+    border: 2px black solid;
+    padding: 5px;
+    width: 83%;
 }
 
 #search-btn {
@@ -19,10 +26,6 @@
 
 #header-id {
     background-color: blue !important;
-}
-
-#search-btn {
-    width: 100%;
 }
 
 .border {
