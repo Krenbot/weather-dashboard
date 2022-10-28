@@ -44,7 +44,7 @@ THEN I am again presented with current and future conditions for that city
 
 ## Mock-up
 
-![Demo of weather dashboard](./assets/06-server-side-apis-homework-demo.png)
+![Demo of weather dashboard](./assets/dashboard-demo.png)
 
 ## Installation
 1. Download/clone repository to local machine
